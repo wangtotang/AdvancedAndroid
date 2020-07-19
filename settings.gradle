@@ -1,0 +1,3 @@
+include ':advanced'
+include ':app'
+rootProject.name = "AdvancedAndroid"
