@@ -1,3 +1,5 @@
+include ':hotfix'
+include ':classloader-demo'
 include ':asm_lifecycle_plugin'
 include ':advanced'
 include ':app'
