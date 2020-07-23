@@ -28,8 +28,8 @@ public class ClassLoaderTest {
             Class c = diskClassLoader.loadClass("com.tanghongtu.advanced.p05.Secret");
             if (c != null) {
                 Object obj = c.newInstance();
-                Method method = c.getDeclaredMethod("printSecret", null);
-                method.invoke(obj, null);
+                Method method = c.getDeclaredMethod("printSecret", c);
+                method.invoke(obj, obj);
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
             e.printStackTrace();
