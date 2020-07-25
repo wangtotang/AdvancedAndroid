@@ -1,17 +1,17 @@
 apply plugin: 'com.android.application'
 
-apply plugin: 'tang.asm.lifecycle'
-buildscript {
-    repositories {
-        google()
-        jcenter()
-        //自定义插件 group + module + version
-        maven { url '../asm_lifecycle_repo'}
-    }
-    dependencies {
-        classpath 'com.tong.plugin:asm_lifecycle_plugin:1.0.0'
-    }
-}
+//apply plugin: 'tang.asm.lifecycle'
+//buildscript {
+//    repositories {
+//        google()
+//        jcenter()
+//        //自定义插件 group + module + version
+//        maven { url '../asm_lifecycle_repo'}
+//    }
+//    dependencies {
+//        classpath 'com.tong.plugin:asm_lifecycle_plugin:1.0.0'
+//    }
+//}
 
 android {
     compileSdkVersion 29
