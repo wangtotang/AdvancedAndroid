@@ -1,3 +1,5 @@
+include ':task-demo2'
+include ':task-demo'
 include ':hotfix'
 include ':classloader-demo'
 include ':asm_lifecycle_plugin'
