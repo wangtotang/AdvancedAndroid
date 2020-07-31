@@ -2,9 +2,11 @@ package com.tang.task.demo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 
 import java.io.Serializable;
 
@@ -29,4 +31,5 @@ public class MainActivity extends AppCompatActivity {
         private transient byte[] data = new byte[1024 * 1024];
         String str = "data string";
     }
+
 }
