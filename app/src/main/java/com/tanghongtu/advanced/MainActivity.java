@@ -15,7 +15,5 @@ public class MainActivity extends AppCompatActivity {
         TextView viewById = findViewById(R.id.textView);
         viewById.setText("怎么回事？");
 
-        startActivity(new Intent(this, SecondActivity.class));
-
     }
 }
