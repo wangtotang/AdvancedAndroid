@@ -1,8 +1,12 @@
 package com.tanghongtu.advanced;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.util.LongSparseArray;
 import android.util.SparseArray;
@@ -23,6 +27,26 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static Runnable myRunnable = new Runnable() {
+
+        private Handler handler;
+
+        @SuppressLint("HandlerLeak")
+        @Override
+        public void run() {
+            //创建子线程的looper和绑定handler子对象
+            Looper.prepare();
+            handler = new Handler() {
+
+                @Override
+                public void handleMessage(@NonNull Message msg) {
+
+                }
+            };
+            Looper.loop();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

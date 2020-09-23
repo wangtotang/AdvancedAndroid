@@ -1,3 +1,5 @@
+include ':handler-looper'
+include ':custom-widget-demo'
 include ':touch-interceptor-demo'
 include ':task-demo2'
 include ':task-demo'
