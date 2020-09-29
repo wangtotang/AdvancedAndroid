@@ -1,3 +1,6 @@
+include ':eventbus-annotation'
+include ':eventbus-annotation-processor'
+include ':eventbus'
 include ':handler-looper'
 include ':custom-widget-demo'
 include ':touch-interceptor-demo'

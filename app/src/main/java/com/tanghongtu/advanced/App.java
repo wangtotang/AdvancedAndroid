@@ -8,6 +8,8 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.tang.eventbus.EventBus;
+
 /**
  * @author tanghongtu
  * @date 2020/9/23
@@ -55,5 +57,6 @@ public class App extends Application {
                 Log.d(TAG, "onActivityDestroyed: " + activity.getComponentName());
             }
         });
+        EventBus.getDefault().addIndex(new EventBusIndex());
     }
 }

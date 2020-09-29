@@ -8,7 +8,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.greenrobot.eventbus.EventBus;
+import com.tang.eventbus.EventBus;
+
 
 public class ThirdActivity extends AppCompatActivity {
 

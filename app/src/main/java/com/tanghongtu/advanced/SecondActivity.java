@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.greenrobot.eventbus.EventBus;
+import com.tang.eventbus.EventBus;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -27,8 +27,8 @@ public class SecondActivity extends AppCompatActivity {
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                EventBus.getDefault().post("Hello World");
-                startActivity(new Intent(SecondActivity.this, ThirdActivity.class));
+                EventBus.getDefault().post("Hello World");
+//                startActivity(new Intent(SecondActivity.this, ThirdActivity.class));
             }
         });
         addContentView(tv, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));

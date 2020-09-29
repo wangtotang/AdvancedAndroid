@@ -8,23 +8,15 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
-import android.util.LongSparseArray;
-import android.util.SparseArray;
-import android.util.SparseBooleanArray;
-import android.util.SparseLongArray;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.collection.ArrayMap;
 
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
-
-import java.util.HashMap;
+import com.tang.eventbus.EventBus;
+import com.tang.eventbus.Subscribe;
+import com.tang.eventbus.ThreadMode;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -70,10 +62,11 @@ public class MainActivity extends AppCompatActivity {
         Log.d("App", "onConfigurationChanged: " + getComponentName());
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
+    @Subscribe(threadMode = ThreadMode.ASYNC)
     public void onReceived(String msg) {
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(MainActivity.this, SecondActivity.class));
+        Log.d("tang", "onReceived: "+msg);
+//        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+//        startActivity(new Intent(MainActivity.this, SecondActivity.class));
     }
 
     @Override
