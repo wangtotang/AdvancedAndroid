@@ -124,7 +124,7 @@ public class EventBus {
     }
 
     private void runOnWorkThread(final Object obj, final Object subscriber, final SubscribeMethod method) {
-        cacheThreadPool.execute(new Runnable() {
+        cacheThreadPool.submit(new Runnable() {
             @Override
             public void run() {
                 invoke(subscriber, method, obj);
@@ -161,6 +161,7 @@ public class EventBus {
     }
 
     public void clear(){
+        cacheThreadPool.shutdown();
         subscribeMethodMap.clear();
         Set<Map.Entry<Class<?>, List<SubscribeMethod>>> entries = cacheMap.entrySet();
         for (Map.Entry<Class<?>, List<SubscribeMethod>> entry : entries) {

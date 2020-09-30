@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         EventBus.getDefault().register(this);
+
     }
 
     @Override

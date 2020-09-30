@@ -57,6 +57,6 @@ public class App extends Application {
                 Log.d(TAG, "onActivityDestroyed: " + activity.getComponentName());
             }
         });
-        EventBus.getDefault().addIndex(new EventBusIndex());
+//        EventBus.getDefault().addIndex(new EventBusIndex());
     }
 }

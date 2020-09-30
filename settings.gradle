@@ -1,3 +1,4 @@
+include ':threadpool'
 include ':eventbus-annotation'
 include ':eventbus-annotation-processor'
 include ':eventbus'
