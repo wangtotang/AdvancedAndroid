@@ -15,7 +15,7 @@ import java.util.Map;
  */
 public class EventBusIndex implements SubscribeIndex {
 
-    private static final Map<Class<?>, List<SubscribeMethod>> CACHE_MAP = new HashMap<>();
+    private static final Map<Class, List<SubscribeMethod>> CACHE_MAP = new HashMap<>();
 
     static {
         List<SubscribeMethod> methods = new ArrayList<>();
@@ -24,7 +24,7 @@ public class EventBusIndex implements SubscribeIndex {
     }
 
     @Override
-    public Map<Class<?>, List<SubscribeMethod>> getSubscribeMethodMap() {
+    public Map<Class, List<SubscribeMethod>> getSubscribeMethodMap() {
         return CACHE_MAP;
     }
 }

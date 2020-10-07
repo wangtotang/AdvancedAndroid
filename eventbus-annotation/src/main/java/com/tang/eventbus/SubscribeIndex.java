@@ -9,6 +9,6 @@ import java.util.Map;
  */
 public interface SubscribeIndex {
 
-    Map<Class<?>, List<SubscribeMethod>> getSubscribeMethodMap();
+    Map<Class, List<SubscribeMethod>> getSubscribeMethodMap();
 
 }

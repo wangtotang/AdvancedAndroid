@@ -21,7 +21,7 @@ import java.util.concurrent.Executors;
 public class EventBus {
 
     private static EventBus instance;
-    private Map<Class<?>, List<SubscribeMethod>> cacheMap;
+    private Map<Class, List<SubscribeMethod>> cacheMap;
     private Map<Object, List<SubscribeMethod>> subscribeMethodMap;
     private Handler mHandler;
     private ExecutorService cacheThreadPool;
@@ -163,8 +163,8 @@ public class EventBus {
     public void clear(){
         cacheThreadPool.shutdown();
         subscribeMethodMap.clear();
-        Set<Map.Entry<Class<?>, List<SubscribeMethod>>> entries = cacheMap.entrySet();
-        for (Map.Entry<Class<?>, List<SubscribeMethod>> entry : entries) {
+        Set<Map.Entry<Class, List<SubscribeMethod>>> entries = cacheMap.entrySet();
+        for (Map.Entry<Class, List<SubscribeMethod>> entry : entries) {
             entry.getValue().clear();
         }
         cacheMap.clear();

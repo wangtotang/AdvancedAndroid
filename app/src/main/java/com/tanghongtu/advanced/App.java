@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.tang.eventbus.EventBus;
+import com.tang.eventbus.EventBusTestsIndex;
 
 /**
  * @author tanghongtu
@@ -58,5 +59,6 @@ public class App extends Application {
             }
         });
 //        EventBus.getDefault().addIndex(new EventBusIndex());
+        EventBus.getDefault().addIndex(new EventBusTestsIndex());
     }
 }
