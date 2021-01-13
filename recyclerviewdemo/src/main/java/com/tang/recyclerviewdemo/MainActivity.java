@@ -3,6 +3,7 @@ package com.tang.recyclerviewdemo;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -45,7 +46,10 @@ public class MainActivity extends AppCompatActivity {
                 snackbar.show();
             }
         });
-        rv.addItemDecoration(new LinearDecoration(this, RecyclerView.VERTICAL));
+        LinearDecoration divider = new LinearDecoration(this, RecyclerView.VERTICAL);
+        divider.setDivider(getDrawable(R.drawable.shape_divider));
+        divider.setWeight(20);
+        rv.addItemDecoration(divider);
         rv.setAdapter(adapter);
     }
 

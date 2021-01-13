@@ -3,7 +3,9 @@ package com.tang.recyclerviewdemo;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -16,7 +18,7 @@ public class LinearDecoration extends RecyclerView.ItemDecoration {
     };
     private int mOrientation = RecyclerView.VERTICAL;
     private Drawable divider;
-    private int weight = 1;
+    private int weight = 0;
 
     public LinearDecoration(Context context, int orientation) {
         mOrientation = orientation;
@@ -43,25 +45,61 @@ public class LinearDecoration extends RecyclerView.ItemDecoration {
     }
 
     private void drawVertical(Canvas c, RecyclerView parent) {
+
         int left = parent.getPaddingLeft();
         int right = parent.getWidth() - parent.getPaddingRight();
 
-
         for (int i = 0; i < parent.getChildCount(); i++) {
+            View child = parent.getChildAt(i);
+            RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) child.getLayoutParams();
+
+//            if (i == 0) {
+//                divider.setBounds(left, child.getTop(), right, child.getTop() + getDividerWeight());
+//                divider.draw(c);
+//            }
+
+            int top = child.getBottom() + layoutParams.bottomMargin;
+            int bottom = top + getDividerWeight();
+
+            divider.setBounds(left, top, right, bottom);
+            divider.draw(c);
 
         }
 
-        int top = 0;
-        int bottom = top + weight;
-
-        divider.setBounds(left, top, right, bottom);
-        divider.draw(c);
-
-        divider.setBounds(left, top + 10, right, bottom + 10);
-        divider.draw(c);
     }
 
     private void drawHorizontal(Canvas c, RecyclerView parent) {
+        int top = parent.getPaddingTop();
+        int bottom = parent.getHeight() - parent.getPaddingBottom();
 
+        for (int i = 0; i < parent.getChildCount(); i++) {
+            View child = parent.getChildAt(i);
+            RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) child.getLayoutParams();
+
+//            if (i == 0) {
+//                divider.setBounds(child.getLeft(), top, child.getLeft() + getDividerWeight(), bottom);
+//                divider.draw(c);
+//            }
+
+            int left = child.getRight() + layoutParams.rightMargin;
+            int right = left + getDividerWeight();
+
+            divider.setBounds(left, top, right, bottom);
+            divider.draw(c);
+
+        }
+    }
+
+    private int getDividerWeight() {
+        return weight > 0 ? weight : divider.getIntrinsicHeight();
+    }
+
+    @Override
+    public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+        if (mOrientation == RecyclerView.HORIZONTAL) {
+            outRect.set(0, 0, getDividerWeight(), 0);
+        } else {
+            outRect.set(0, 0, 0, getDividerWeight());
+        }
     }
 }
