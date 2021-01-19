@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.tang.eventbus.EventBus;
 
+import java.util.concurrent.Semaphore;
+
 
 public class ThirdActivity extends AppCompatActivity {
 
@@ -32,6 +34,5 @@ public class ThirdActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
     }
 }
