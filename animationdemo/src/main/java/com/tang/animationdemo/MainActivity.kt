@@ -15,19 +15,23 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        customAnimation()
+        customAnimation()
 //        systemAnimation()
-        layoutAnimation()
+//        layoutAnimation()
     }
 
     fun click(view: View) {
-//        tv.startAnimation(animation)
+        tv.startAnimation(animation)
+        tv.postDelayed({
+            tv.clearAnimation()
+            tv.visibility = View.GONE
+        }, 6000)
 //        frameAnimation()
-        startActivity(Intent(this, SecondActivity::class.java))
+//        startActivity(Intent(this, SecondActivity::class.java))
 //        overridePendingTransition(R.anim.anim_enter, R.anim.anim_exit)
     }
 
-    fun layoutAnimation(){
+    fun layoutAnimation() {
         val loadAnimation = AnimationUtils.loadAnimation(this, R.anim.anim_item)
         val layoutAnimationController = LayoutAnimationController(loadAnimation)
         layoutAnimationController.delay = 0.5f
@@ -35,17 +39,17 @@ class MainActivity : AppCompatActivity() {
         constraintLayout.layoutAnimation = layoutAnimationController
     }
 
-    fun frameAnimation(){
+    fun frameAnimation() {
         tv.setBackgroundResource(R.drawable.my_frame_anim)
         (tv.background as AnimationDrawable).start()
     }
 
-    fun systemAnimation(){
+    fun systemAnimation() {
         animation = AnimationUtils.loadAnimation(this, R.anim.my_view_anim)
     }
 
-    fun customAnimation(){
-        animation = Rotate3DAnimation(0f, 90f, 0f, 0f, 10f, true)
+    fun customAnimation() {
+        animation = Rotate3DAnimation(0f, 80f, 0f, 0f, 10f, true)
         animation.duration = 6000
         animation.fillAfter = true
     }
