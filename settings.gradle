@@ -1,3 +1,4 @@
+include ':annotation_reflect'
 include ':animationdemo'
 include ':recyclerviewdemo'
 include ':dynamic-proxy'
